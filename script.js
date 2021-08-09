@@ -23,21 +23,25 @@ const matrix = () => {
     }
 }
 matrix()
+
 // criar handle de click
-const fazAlgo = (evt) => {
+container.addEventListener("click", (evt) =>{
     let teste = evt.target.parentElement
     for (let i = 5 ; i>=0 ; i--){
-    if (teste.children[i].length !== 1){
-     let playerX = creatRocks("playerX")
-     teste.children[i].append(playerX)
-     return
-    }
-    
+        if (teste.children[i].childElementCount !== 1){
+            if (verification){
+                let input = teste.children[i].append(creatRocks('playerX'))
+                verification = false
+                return input
+            }
+            else {
+                let input = teste.children[i].append(creatRocks('playerY'))
+                verification = true
+                return input
+            }
+        }
     console.log(teste.children[i].length)
     }
-    
-
-}
-container.addEventListener("click", fazAlgo)
+});
 
 
