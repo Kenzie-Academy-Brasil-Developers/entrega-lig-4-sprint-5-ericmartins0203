@@ -12,14 +12,20 @@ body {
     height: 100vh;
     justify-content: center;
     align-items: center;
+    background-image: url("https://wallpaperaccess.com/full/2076477.jpg");
 }
 
 #container {
     width: 420px;
     height: 360px;
-  
     display: flex;
     flex-direction: row;
+    background: rgba( 255, 255, 255, 0.10 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 14.5px );
+    -webkit-backdrop-filter: blur( 14.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 .colums {
@@ -31,6 +37,7 @@ body {
     width: 60px;
     height: 60px;  
     border: 1px solid;
+    border-radius: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
