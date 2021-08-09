@@ -29,8 +29,6 @@ matrix()
 // criar handle de click
 container.addEventListener("click", (evt) =>{
     let teste = evt.target.parentElement
-    
-    
     for (let i = 5 ; i>=0 ; i--){
         if (teste.children[i].childElementCount !== 1){
             if (verification){
@@ -45,8 +43,8 @@ container.addEventListener("click", (evt) =>{
             }
         }
     }
-    
 });
+
 
 // for (let i= 0;i<container.children.length;i++){
 //     for (let j=0; j<container.children[i].children.length;j++){
