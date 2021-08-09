@@ -48,22 +48,28 @@ container.addEventListener("click", (evt) =>{
     
 });
 
-for (let i= 0;i<container.children.length;i++){
-    for (let j=0; j<container.children[i].children.length;j++){
-        console.log('container.children[i].children[j].children[0].className')
-        if (container.children[i].children[j].childrenElementCount!==0){
-            if (container.children[i].children[j].children[0].className === 'playerX' && 
-            container.children[i].children[j+1].children[0].className === 'playerX' ){
+// for (let i= 0;i<container.children.length;i++){
+//     for (let j=0; j<container.children[i].children.length;j++){
+//         console.log('container.children[i].children[j].children[0].className')
+//         if (container.children[i].children[j].childrenElementCount!==0){
+//             if (container.children[i].children[j].children[0].className === 'playerX' && 
+//             container.children[i].children[j+1].children[0].className === 'playerX' ){
                 
-                console.log('parabens')
-            }
-        }
-    }
-}
+//                 console.log('parabens')
+//             }
+//         }
+//     }
+// }
 
 
 // validação
-
+const validation = () => {
+    for (let i =0 ; i <=6 ; i++) {
+        let destination = container.children[i]
+        console.log(container.children[0])
+    }
+}
+validation()
 //horizontal
 //vertical
 //diagonal direita
