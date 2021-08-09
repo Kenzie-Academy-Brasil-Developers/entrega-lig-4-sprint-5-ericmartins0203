@@ -1,5 +1,6 @@
 const container = document.getElementById('container');
 let verification =  true
+
 //cria Pedras
 const creatRocks = (player) => {
     const rocks = document.createElement("div")
@@ -30,17 +31,16 @@ container.addEventListener("click", (evt) =>{
     for (let i = 5 ; i>=0 ; i--){
         if (teste.children[i].childElementCount !== 1){
             if (verification){
-                let input = teste.children[i].append(creatRocks('playerX'))
+                let output = teste.children[i].append(creatRocks('playerX'))
                 verification = false
-                return input
+                return output
             }
             else {
-                let input = teste.children[i].append(creatRocks('playerY'))
+                let output = teste.children[i].append(creatRocks('playerY'))
                 verification = true
-                return input
+                return output
             }
         }
-    console.log(teste.children[i].length)
     }
 });
 
