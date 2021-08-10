@@ -1,7 +1,6 @@
 const container = document.getElementById('container');
 let verification =  true
 let columnValidation 
-
 const verticalValidation = () => {
     let player = [] 
     let count = 0;
