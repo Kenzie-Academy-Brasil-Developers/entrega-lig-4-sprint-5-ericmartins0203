@@ -93,7 +93,7 @@ const matrix = () => {
 
         for (let j=0; j < 6; j++){
             let blocks = document.createElement('section');
-            //blocks.setAttribute('data-player', 'vazio')
+            blocks.setAttribute('data-player', 'vazio')
             blocks.id=`block${j}`;
             blocks.className='blocks';
             blocks.setAttribute('data-cl', leftDiagonal[i][j])
@@ -105,70 +105,35 @@ const matrix = () => {
 }
 matrix()
 
-const diagonalLeft = () => {
-    let allblocks = document.querySelectorAll('[data-cl]')
-    let dataName = '';
-    let arrD
-    let arrBlock = [];
-    for (let i = 0 ; i <=5 ; i++) {
-        let column = columnValidation[i]           
-        if (column.childElementCount ===1){             
-            dataName = column.dataset.cl;
-            break;
-        }            
-    } 
-    
-    const verifyIncludes = () => {
-        for (let j=0; j<winCombinationsLD.length; j++){
-            if (winCombinationsLD[j].includes(dataName)){
-                arrD = winCombinationsLD[j];
-                return true
-            }
-        }
-    }
+const diagonalVerification = () => {
 
-    if (verifyIncludes()) {
-       for (let m=0; m<arrD.length; m++){
-            for (let k=0; k<allblocks.length; k++){
-                if ((arrD[m] === allblocks[k].dataset.cl) & !(allblocks[k].dataset.player === undefined)){
-                    arrBlock.push(allblocks[k].dataset.player)
-                }
-            }
-       }
-     
-         
-        let count = 0;
-        for (let i=1; i<arrBlock.length; i++){
-            if ((arrBlock[i-1] === arrBlock[i]) ){
-                count++;
-                champs = arrBlock[i]
-            }
-            else {
-                count = 0;
-            }
-
-            if (count === 3) {
-               return console.log(champs)                
+    for (let i=0; i<container.children.length-3; i++){
+        let col = container.children[i]
+        for (let j=3; j<col.children.length; j++){
+            let block = col.children[j]
+           
+            if (block.dataset.player ===  container.children[i+1].children[j-1].dataset.player &&
+                block.dataset.player ===  container.children[i+2].children[j-2].dataset.player &&
+                block.dataset.player ===  container.children[i+3].children[j-3].dataset.player &&
+                block.dataset.player!== 'vazio'){
+                return console.log('Player'+block.dataset.player)
             }
         }
     }
     
-
-    
-    // for (let i=0; i<container.children.length-3; i++){
-    //     let col = container.children[i]
-    //     console.log(col)
-    //     for (let j=3; j<col.children.length; j++){
-    //         let block = col.children[j]
-    //         console.log(block.dataset.player)
-    //         if (container.children[i].children[j].dataset.player === container.children[i+1].children[j-1].dataset.player &&
-    //             container.children[i].children[j].dataset.player ===  container.children[i+2].children[j-2].dataset.player &&
-    //             container.children[i].children[j].dataset.player ===  container.children[i+3].children[j-3].dataset.player &&
-    //             container.children[i].children[j].dataset.player!== ('vazio')){
-    //             return console.log('you win')
-    //         }
-    //     }
-    // }
+    for (let i=3; i<container.children.length; i++){
+        let col = container.children[i]
+        for (let j=3; j<col.children.length; j++){
+            let block = col.children[j]
+            
+            if (block.dataset.player ===  container.children[i-1].children[j-1].dataset.player &&
+                block.dataset.player ===  container.children[i-2].children[j-2].dataset.player &&
+                block.dataset.player ===  container.children[i-3].children[j-3].dataset.player &&
+                block.dataset.player!== 'vazio'){
+                return console.log('Player'+block.dataset.player)
+            }
+        }
+    }
     
 }
 
@@ -191,7 +156,7 @@ container.addEventListener("click", (evt) =>{
                 verification = false
                 verticalValidation()
                 horizontalValidation()
-                diagonalLeft()
+                diagonalVerification()
                 return output
             }
             else {
@@ -200,7 +165,7 @@ container.addEventListener("click", (evt) =>{
                 verification = true
                 verticalValidation()
                 horizontalValidation()
-                diagonalLeft()
+                diagonalVerification()
                 return output
             }
         }
