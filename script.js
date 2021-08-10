@@ -1,6 +1,25 @@
 const container = document.getElementById('container');
 let verification =  true
 let columnValidation 
+let blockId
+
+let champs;
+const confirmation = (arr) => {
+    for (let i=1; i<arr.length; i++){
+        if (arr[i-1] === arr[i]){
+            count++;
+            champs = arr[i]
+        }
+        else {
+            count = 0;
+        }
+
+        if (count === 3) {
+            return champs                 
+        }
+    }
+}
+
 
 const verticalValidation = () => {
     let player = [] 
@@ -31,6 +50,32 @@ const verticalValidation = () => {
 
 }
 
+const horizontalValidation = () => {
+    let count = 0;
+    let playersH = [];
+    let camp ='';
+    let horizontal = document.querySelectorAll(`#${blockId}`);  
+    for(let i=5; i>=0; i--){
+        if ((horizontal[i].childElementCount === 1)) {
+            playersH.push(horizontal[i].children[0].className)
+        }
+    }   
+    for (let i=1; i<playersH.length; i++){
+        if (playersH[i-1] === playersH[i]){
+            count++;
+            camp = playersH[i]
+        }
+        else {
+            count = 0;
+        }
+
+        if (count === 3) {
+            return console.log(camp)                  
+        }
+    
+    }
+}
+
 //cria Pedras
 const creatRocks = (player) => {
     const rocks = document.createElement("div")
@@ -59,7 +104,10 @@ matrix()
 // criar handle de click
 container.addEventListener("click", (evt) =>{
     columnValidation = evt.target.parentElement.childNodes
-    let teste = evt.target.parentElement
+    blockId = evt.target.id;
+    let teste = evt.target.parentElement    
+
+    
 
     for (let i = 5 ; i>=0 ; i--){
         if (teste.children[i].childElementCount !== 1){
@@ -67,20 +115,20 @@ container.addEventListener("click", (evt) =>{
                 let output = teste.children[i].append(creatRocks('playerX'))
                 verification = false
                 verticalValidation()
+                horizontalValidation()
                 return output
             }
             else {
                 let output = teste.children[i].append(creatRocks('playerY'))
                 verification = true
                 verticalValidation()
+                horizontalValidation()
                 return output
             }
         }
-    }
+    }    
     
 });
-
-
 
 
 // for (let i= 0;i<container.children.length;i++){
@@ -98,8 +146,6 @@ container.addEventListener("click", (evt) =>{
 
 
 // validação
-
-    
 
 
 
