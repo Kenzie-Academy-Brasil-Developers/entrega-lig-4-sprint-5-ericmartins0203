@@ -2,8 +2,8 @@ const container = document.getElementById('container');
 let verification =  true
 let columnValidation 
 let blockId
-
-let champs;
+let stop = false
+let champion = ""
 const confirmation = (arr) => {
     for (let i=1; i<arr.length; i++){
         if (arr[i-1] === arr[i]){
@@ -15,6 +15,7 @@ const confirmation = (arr) => {
         }
 
         if (count === 3) {
+        
             return champs                 
         }
     }
@@ -43,6 +44,8 @@ const verticalValidation = () => {
         }
 
         if (count === 3) {
+            champion = campeao
+            stop = true
             return console.log(campeao)                  
         }
 
@@ -70,6 +73,8 @@ const horizontalValidation = () => {
         }
 
         if (count === 3) {
+            stop = true
+            champion = camp
             return console.log(camp)                  
         }
     
@@ -123,13 +128,19 @@ container.addEventListener("click", (evt) =>{
                 verification = true
                 verticalValidation()
                 horizontalValidation()
+                stopCondition()
                 return output
             }
         }
     }    
     
 });
-
+// condição parada quando vence
+const stopCondition = () => {
+    if (stop){
+       console.log(`Parabéns o ${champion} venceu!`) 
+    }
+}
 
 // for (let i= 0;i<container.children.length;i++){
 //     for (let j=0; j<container.children[i].children.length;j++){
