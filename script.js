@@ -2,6 +2,8 @@ const container = document.getElementById('container');
 let verification =  true
 let columnValidation 
 let blockId
+let blockTarget
+//let blockData
 
 let champs;
 const confirmation = (arr) => {
@@ -90,9 +92,10 @@ const matrix = () => {
 
         for (let j=0; j < 6; j++){
             let blocks = document.createElement('section');
-            // blocks.setAttribute('data-test',`col ${i} lin ${j}`)
+            blocks.setAttribute('data-player', 'vazio')
             blocks.id=`block${j}`;
             blocks.className='blocks';
+            blocks.setAttribute('data-cl', leftDiagonal[i][j])
 
             col.appendChild(blocks);
         }
@@ -101,28 +104,77 @@ const matrix = () => {
 }
 matrix()
 
+const diagonalLeft = () => {
+    // let dataName = '';
+    // let arrD
+    // let arrBlock = [];
+    // for (let i = 0 ; i <=5 ; i++) {
+    //     let column = columnValidation[i]           
+    //     if (column.childElementCount ===1){             
+    //         dataName = column.dataset.cl;
+    //         break;
+    //     }            
+    // } 
+    
+    // const verifyIncludes = () => {
+    //     for (let j=0; j<winCombinationsLD.length; j++){
+    //         if (winCombinationsLD[j].includes(dataName)){
+    //             arrD = winCombinationsLD[j];
+    //             return true
+    //         }
+    //     }
+    // }
+
+    // if (verifyIncludes()) {
+        
+    // }
+
+    // for (let i=0; i<container.children.length-3; i++){
+    //     let col = container.children[i]
+    //     console.log(col)
+    //     for (let j=3; j<col.children.length; j++){
+    //         let block = col.children[j]
+    //         console.log(block.dataset.player)
+    //         if (container.children[i].children[j].dataset.player === container.children[i+1].children[j-1].dataset.player &&
+    //             container.children[i].children[j].dataset.player ===  container.children[i+2].children[j-2].dataset.player &&
+    //             container.children[i].children[j].dataset.player ===  container.children[i+3].children[j-3].dataset.player &&
+    //             container.children[i].children[j].dataset.player!== ('vazio')){
+    //             return console.log('you win')
+    //         }
+    //     }
+    // }
+    
+}
+
 // criar handle de click
 container.addEventListener("click", (evt) =>{
     columnValidation = evt.target.parentElement.childNodes
     blockId = evt.target.id;
+    blockTarget = evt.target;
+    //blockData = evt.target.dataset.cl;
     let teste = evt.target.parentElement    
 
+   // console.log()
     
 
     for (let i = 5 ; i>=0 ; i--){
         if (teste.children[i].childElementCount !== 1){
             if (verification){
+                teste.children[i].setAttribute( 'data-player', 'x')
                 let output = teste.children[i].append(creatRocks('playerX'))
                 verification = false
                 verticalValidation()
                 horizontalValidation()
+                diagonalLeft()
                 return output
             }
             else {
+                teste.children[i].setAttribute( 'data-player', 'y')
                 let output = teste.children[i].append(creatRocks('playerY'))
                 verification = true
                 verticalValidation()
                 horizontalValidation()
+                diagonalLeft()
                 return output
             }
         }
