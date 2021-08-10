@@ -3,10 +3,11 @@ let verification =  true
 let columnValidation 
 let blockId
 let blockTarget
-//let blockData
+
 
 let champs;
 const confirmation = (arr) => {
+    let count = 0;
     for (let i=1; i<arr.length; i++){
         if (arr[i-1] === arr[i]){
             count++;
@@ -92,7 +93,7 @@ const matrix = () => {
 
         for (let j=0; j < 6; j++){
             let blocks = document.createElement('section');
-            blocks.setAttribute('data-player', 'vazio')
+            //blocks.setAttribute('data-player', 'vazio')
             blocks.id=`block${j}`;
             blocks.className='blocks';
             blocks.setAttribute('data-cl', leftDiagonal[i][j])
@@ -105,30 +106,55 @@ const matrix = () => {
 matrix()
 
 const diagonalLeft = () => {
-    // let dataName = '';
-    // let arrD
-    // let arrBlock = [];
-    // for (let i = 0 ; i <=5 ; i++) {
-    //     let column = columnValidation[i]           
-    //     if (column.childElementCount ===1){             
-    //         dataName = column.dataset.cl;
-    //         break;
-    //     }            
-    // } 
+    let allblocks = document.querySelectorAll('[data-cl]')
+    let dataName = '';
+    let arrD
+    let arrBlock = [];
+    for (let i = 0 ; i <=5 ; i++) {
+        let column = columnValidation[i]           
+        if (column.childElementCount ===1){             
+            dataName = column.dataset.cl;
+            break;
+        }            
+    } 
     
-    // const verifyIncludes = () => {
-    //     for (let j=0; j<winCombinationsLD.length; j++){
-    //         if (winCombinationsLD[j].includes(dataName)){
-    //             arrD = winCombinationsLD[j];
-    //             return true
-    //         }
-    //     }
-    // }
+    const verifyIncludes = () => {
+        for (let j=0; j<winCombinationsLD.length; j++){
+            if (winCombinationsLD[j].includes(dataName)){
+                arrD = winCombinationsLD[j];
+                return true
+            }
+        }
+    }
 
-    // if (verifyIncludes()) {
-        
-    // }
+    if (verifyIncludes()) {
+       for (let m=0; m<arrD.length; m++){
+            for (let k=0; k<allblocks.length; k++){
+                if ((arrD[m] === allblocks[k].dataset.cl) & !(allblocks[k].dataset.player === undefined)){
+                    arrBlock.push(allblocks[k].dataset.player)
+                }
+            }
+       }
+     
+         
+        let count = 0;
+        for (let i=1; i<arrBlock.length; i++){
+            if ((arrBlock[i-1] === arrBlock[i]) ){
+                count++;
+                champs = arrBlock[i]
+            }
+            else {
+                count = 0;
+            }
 
+            if (count === 3) {
+               return console.log(champs)                
+            }
+        }
+    }
+    
+
+    
     // for (let i=0; i<container.children.length-3; i++){
     //     let col = container.children[i]
     //     console.log(col)
@@ -181,6 +207,7 @@ container.addEventListener("click", (evt) =>{
     }    
     
 });
+
 
 
 // for (let i= 0;i<container.children.length;i++){
