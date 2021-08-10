@@ -1,4 +1,5 @@
 const container = document.getElementById('container');
+const victory =  document.getElementById("victory")
 let verification =  true
 let columnValidation 
 let blockId
@@ -121,6 +122,7 @@ container.addEventListener("click", (evt) =>{
                 verification = false
                 verticalValidation()
                 horizontalValidation()
+                stopCondition()
                 return output
             }
             else {
@@ -138,24 +140,12 @@ container.addEventListener("click", (evt) =>{
 // condição parada quando vence
 const stopCondition = () => {
     if (stop){
-       console.log(`Parabéns o ${champion} venceu!`) 
+       console.log(`Parabéns o ${champion} venceu!`)
+       
+        victory.style.display = "block"
+        container.style.display = "none"
     }
 }
-
-// for (let i= 0;i<container.children.length;i++){
-//     for (let j=0; j<container.children[i].children.length;j++){
-//         console.log('container.children[i].children[j].children[0].className')
-//         if (container.children[i].children[j].childrenElementCount!==0){
-//             if (container.children[i].children[j].children[0].className === 'playerX' && 
-//             container.children[i].children[j+1].children[0].className === 'playerX' ){
-                
-//                 console.log('parabens')
-//             }
-//         }
-//     }
-// }
-
-
 // validação
 
 

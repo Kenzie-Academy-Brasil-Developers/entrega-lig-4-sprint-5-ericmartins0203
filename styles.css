@@ -56,3 +56,10 @@ body {
     background-color:red;
     border: 1px solid white;
 }
+
+.victory {
+    display: none;
+    width: 420px;
+    height: 360px;
+    background-color: white;
+}
