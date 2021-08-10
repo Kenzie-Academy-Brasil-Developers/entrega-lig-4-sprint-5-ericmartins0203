@@ -20,7 +20,7 @@ const confirmation = (arr) => {
     }
 }
 
-
+//vertical
 const verticalValidation = () => {
     let player = [] 
     let count = 0;
@@ -49,7 +49,7 @@ const verticalValidation = () => {
     }
 
 }
-
+//horizontal
 const horizontalValidation = () => {
     let count = 0;
     let playersH = [];
@@ -89,7 +89,7 @@ const matrix = () => {
         col.className = 'colums';
 
         for (let j=0; j < 6; j++){
-            let blocks = document.createElement('section');
+            let blocks = document.createElement('div');
             // blocks.setAttribute('data-test',`col ${i} lin ${j}`)
             blocks.id=`block${j}`;
             blocks.className='blocks';
@@ -149,8 +149,8 @@ container.addEventListener("click", (evt) =>{
 
 
 
-//horizontal
-//vertical
+
+
 //diagonal direita
 //diagonal esquerda
 
