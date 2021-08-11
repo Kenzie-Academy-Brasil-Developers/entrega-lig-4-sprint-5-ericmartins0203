@@ -215,12 +215,17 @@ container.addEventListener("click", (evt) =>{
 });
 
 // condição parada quando vence
+
 const stopCondition = () => {
+    const btn = document.createElement("button")
+    btn.id = "buttonReset"
+    btn.textContent = "Jogar Novamente"
     if (stop){
         if(champion == "PlayerX"){
             champion = "Capitão America"
             victory.textContent = `Parabéns o ${champion} venceu!`
             victory.id = "victoryX"
+            victory.appendChild(btn)
             victory.style.display = "flex"
             container.style.display = "none"
         }
@@ -228,14 +233,27 @@ const stopCondition = () => {
             champion = "Homen de Ferro"
             victory.textContent = `Parabéns o ${champion} venceu!`
             victory.id = "victoryY"
+            victory.appendChild(btn)
             victory.style.display = "flex"
             container.style.display = "none"
         }
-        if(champion == "Drawn"){
+        if(champion == "Draw"){
             victory.textContent = "Ué? deu empate."
-            victory.id = "Drawn"
+            victory.id = "Draw"
+            victory.appendChild(btn)
             victory.style.display = "flex"
             container.style.display = "none"
         }
     }
+    
+    const teste = () => {
+        console.log("teste")
+        container.innerHTML = ""
+        matrix()
+        container.style.display = "flex"
+        victory.style.display = "none"
+        
+    }
+    btn.addEventListener("click", teste)
 }
+
