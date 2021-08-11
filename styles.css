@@ -39,12 +39,12 @@ div{
     width: 60px;
     height: 60px;
 }
-.playerX {
+.PlayerX {
     border-radius: 50%;
     background-image: url('https://i.pinimg.com/originals/b7/9a/76/b79a76e0ca4d5c981ae54f08b162f724.png');
     background-size: cover;
 }
-.playerY {
+.PlayerY {
     border-radius: 50%;
     background-size: cover;
     background-image: url( 'https://pbs.twimg.com/profile_images/1222654825403424768/-ySQePLc_400x400.jpg' );
