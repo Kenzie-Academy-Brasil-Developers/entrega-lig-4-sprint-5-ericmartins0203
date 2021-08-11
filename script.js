@@ -112,7 +112,7 @@ const matrix = () => {
         container.appendChild(col);
     }
 }
-matrix()
+
 
 const diagonalVerification = () => {
 
@@ -246,7 +246,7 @@ const stopCondition = () => {
         }
     }
     
-    const teste = () => {
+    const resetGame = () => {
         console.log("teste")
         container.innerHTML = ""
         matrix()
@@ -254,6 +254,20 @@ const stopCondition = () => {
         victory.style.display = "none"
         
     }
-    btn.addEventListener("click", teste)
+    btn.addEventListener("click", resetGame)
 }
 
+const initialScream = () => {
+        const pĺayerSelect = document.createElement("div")
+        pĺayerSelect.id = "pĺayerSelect"
+        const startContent = document.createElement("div")
+        startContent.id = "startContent"
+        container.appendChild(startContent)
+        const btnStart = document.createElement("button")
+        btnStart.id = "btn-start"
+        btnStart.textContent = "Iniciar"
+        startContent.appendChild(pĺayerSelect)
+        startContent.appendChild(btnStart)
+        
+}
+initialScream()
