@@ -60,32 +60,34 @@ const verticalValidation = () => {
 
 }
 
-const horizontalValidation = () => {
-    let count = 0;
-    let playersH = [];
-    let camp ='';
-    let horizontal = document.querySelectorAll(`#${blockId}`);  
-    for(let i=6; i>=0; i--){
-        if ((horizontal[i].childElementCount === 1)) {
-            playersH.push(horizontal[i].children[0].className)
-        }
-    }   
-    for (let i=1; i<playersH.length; i++){
-        if (playersH[i-1] === playersH[i]){
-            count++;
-            camp = playersH[i]
-        }
-        else {
-            count = 0;
+const horizontalValidation = () => {       
+    for (let k=5; k>=0; k--){
+        let playersH = [];
+        let count = 0;
+        let camp = '';
+        
+        for (let i=0; i < container.children.length; i++){
+            if (container.children[i].children[k].childElementCount === 1){
+                playersH.push(container.children[i].children[k].children[0].className);       
+            }
         }
 
-        if (count === 3) {
-            stop = true
-            champion = camp
-            return champion                  
-        }
+        for (let i=1; i<playersH.length; i++){
+            if (playersH[i-1] === playersH[i]){
+                count++;
+                camp = playersH[i]
+            }
+            else {
+                count = 0;
+            }
     
-    }
+            if (count === 3) {
+                stop = true
+                champion = camp
+                return champion                  
+            }    
+        } 
+    }      
 }
 
 //cria Pedras
@@ -199,7 +201,7 @@ container.addEventListener("click", (evt) =>{
                 columnTarget.children[i].setAttribute( 'data-player', 'X')
                 let output = columnTarget.children[i].append(creatRocks('PlayerX'))
                 verification = false
-                checkWinner()              
+                checkWinner()            
                 return output
             }
             else {
@@ -247,7 +249,6 @@ const stopCondition = () => {
     }
     
     const resetGame = () => {
-        console.log("teste")
         container.innerHTML = ""
         matrix()
         container.style.display = "flex"
