@@ -53,7 +53,7 @@ const verticalValidation = () => {
         if (count === 3) {
             champion = campeao
             stop = true
-            return console.log(campeao)                  
+            return champion                
         }
 
     }
@@ -65,7 +65,7 @@ const horizontalValidation = () => {
     let playersH = [];
     let camp ='';
     let horizontal = document.querySelectorAll(`#${blockId}`);  
-    for(let i=5; i>=0; i--){
+    for(let i=6; i>=0; i--){
         if ((horizontal[i].childElementCount === 1)) {
             playersH.push(horizontal[i].children[0].className)
         }
@@ -82,7 +82,7 @@ const horizontalValidation = () => {
         if (count === 3) {
             stop = true
             champion = camp
-            return console.log(camp)                  
+            return champion                  
         }
     
     }
@@ -125,7 +125,8 @@ const diagonalVerification = () => {
                 block.dataset.player ===  container.children[i+2].children[j-2].dataset.player &&
                 block.dataset.player ===  container.children[i+3].children[j-3].dataset.player &&
                 block.dataset.player!== 'vazio'){
-                return console.log('Player'+block.dataset.player)
+                stop = true
+                return ('Player'+block.dataset.player)
             }
         }
     }
@@ -139,7 +140,8 @@ const diagonalVerification = () => {
                 block.dataset.player ===  container.children[i-2].children[j-2].dataset.player &&
                 block.dataset.player ===  container.children[i-3].children[j-3].dataset.player &&
                 block.dataset.player!== 'vazio'){
-                return console.log('Player'+block.dataset.player)
+                stop = true
+                return ('Player'+block.dataset.player)
             }
         }
     }
@@ -147,31 +149,41 @@ const diagonalVerification = () => {
 }
 
 const drawValidation = () => {
-    let allblocks = document.querySelectorAll('[data-cl]');
-    let items;
-    let total;
-    const childVerify = (el) => {
-        return el.childElementCount;
+    let childArr = [];
+    let sum;
+
+    for (let i=0; i<7; i++){
+        childArr.push(container.children[i].children[0].childElementCount)
     }
 
-    const sum = (acc, item) => {
-        return acc+item;
-    } 
+    const sumChild = (acc, item) => acc+item
 
-    items = [].map.call(allblocks, childVerify)
+    sum = childArr.reduce(sumChild);
 
-    total = items.reduce(sum);
+    if (sum === 7){
+        stop = true
+        champion = 'Draw'
+        return 'Draw'
+    }
+}
 
-    if (total === 42) {
-        return console.log('Drawn')
-    } 
+const checkWinner = () => {
+
+    if ((verticalValidation() === 'PlayerX') || (horizontalValidation() === 'PlayerX') || (diagonalVerification() === 'PlayerX')) {
+        return 'PlayerX'
+    }
+    else if ((verticalValidation() === 'PlayerY') || (horizontalValidation() === 'PlayerY') || (diagonalVerification() === 'PlayerY')){
+        return 'PlayerY'
+    }
+    else if (drawValidation() === 'Draw') {
+        return 'Draw'
+    }
 }
 // criar handle de click
 container.addEventListener("click", (evt) =>{
     columnValidation = evt.target.parentElement.childNodes
     blockId = evt.target.id;
     blockTarget = evt.target;
-    //blockData = evt.target.dataset.cl;
     let teste = evt.target.parentElement    
 
    // console.log()
@@ -180,25 +192,17 @@ container.addEventListener("click", (evt) =>{
     for (let i = 5 ; i>=0 ; i--){
         if (teste.children[i].childElementCount !== 1){
             if (verification){
-                teste.children[i].setAttribute( 'data-player', 'x')
-                let output = teste.children[i].append(creatRocks('playerX'))
+                teste.children[i].setAttribute( 'data-player', 'X')
+                let output = teste.children[i].append(creatRocks('PlayerX'))
                 verification = false
-                verticalValidation()
-                horizontalValidation()
-                stopCondition()
-                diagonalVerification()
-                drawValidation()
+                checkWinner()
                 return output
             }
             else {
-                teste.children[i].setAttribute( 'data-player', 'y')
-                let output = teste.children[i].append(creatRocks('playerY'))
+                teste.children[i].setAttribute( 'data-player', 'Y')
+                let output = teste.children[i].append(creatRocks('PlayerY'))
                 verification = true
-                verticalValidation()
-                horizontalValidation()
-                stopCondition()
-                diagonalVerification()
-                drawValidation()
+                checkWinner()
                 return output
             }
         }
