@@ -222,5 +222,11 @@ const stopCondition = () => {
             victory.style.display = "flex"
             container.style.display = "none"
         }
+        if(champion == "Drawn"){
+            victory.textContent = "Ué? deu empate."
+            victory.id = "Drawn"
+            victory.style.display = "flex"
+            container.style.display = "none"
+        }
     }
 }
