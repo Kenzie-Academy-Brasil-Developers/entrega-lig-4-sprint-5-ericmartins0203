@@ -268,6 +268,9 @@ const initialScream = () => {
         btnStart.textContent = "Iniciar"
         startContent.appendChild(pĺayerSelect)
         startContent.appendChild(btnStart)
-        
+        btnStart.addEventListener("click", teste = () =>{
+            startContent.style.display = "none"
+            matrix()
+        })
 }
 initialScream()
