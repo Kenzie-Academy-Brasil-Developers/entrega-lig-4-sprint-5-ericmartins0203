@@ -5,34 +5,27 @@ html, body, figure, div, input, textarea, p, h1, h2, h3, h4, h5, h6, ul, summary
     list-style: none;
     list-style-type: none;
 }
-
 body {
     display: flex;
-    width: 100%;
     height: 100vh;
     justify-content: center;
     align-items: center;
     background-image: url("https://wallpaperaccess.com/full/2076477.jpg");
+    background-size: cover;
 }
-
 #container {
-    width: 420px;
-    height: 360px;
     display: flex;
     flex-direction: row;
     background: rgba( 255, 255, 255, 0.10 );
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 14.5px );
+    backdrop-filter: blur( 10px );
     -webkit-backdrop-filter: blur( 14.5px );
     border-radius: 10px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 .colums {
-    width: 60px;
-    height: 360px;
 }
-
 .blocks {
     width: 60px;
     height: 60px;  
@@ -42,19 +35,19 @@ body {
     justify-content: center;
     align-items: center;
 }
+div{
+    width: 60px;
+    height: 60px;
+}
 .playerX {
-    width: 50px;
-    height: 50px;
     border-radius: 50%;
-    background-color: blue;
-    border: 1px solid white;
+    background-image: url('https://i.pinimg.com/originals/b7/9a/76/b79a76e0ca4d5c981ae54f08b162f724.png');
+    background-size: cover;
 }
 .playerY {
-    width: 50px;
-    height: 50px;
     border-radius: 50%;
-    background-color:red;
-    border: 1px solid white;
+    background-size: cover;
+    background-image: url( 'https://pbs.twimg.com/profile_images/1222654825403424768/-ySQePLc_400x400.jpg' );
 }
 
 .victory {
