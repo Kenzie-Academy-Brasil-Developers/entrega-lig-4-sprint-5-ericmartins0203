@@ -166,7 +166,6 @@ const drawValidation = () => {
         return console.log('Drawn')
     } 
 }
-drawValidation()
 // criar handle de click
 container.addEventListener("click", (evt) =>{
     columnValidation = evt.target.parentElement.childNodes
