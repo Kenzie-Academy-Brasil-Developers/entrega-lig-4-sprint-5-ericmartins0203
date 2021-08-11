@@ -168,39 +168,41 @@ const drawValidation = () => {
 }
 
 const checkWinner = () => {
+   
 
     if ((verticalValidation() === 'PlayerX') || (horizontalValidation() === 'PlayerX') || (diagonalVerification() === 'PlayerX')) {
+        stopCondition()
         return 'PlayerX'
     }
     else if ((verticalValidation() === 'PlayerY') || (horizontalValidation() === 'PlayerY') || (diagonalVerification() === 'PlayerY')){
+        stopCondition()
         return 'PlayerY'
     }
     else if (drawValidation() === 'Draw') {
+        stopCondition()
         return 'Draw'
-    }
+    } 
+    
 }
 // criar handle de click
 container.addEventListener("click", (evt) =>{
     columnValidation = evt.target.parentElement.childNodes
     blockId = evt.target.id;
     blockTarget = evt.target;
-    let teste = evt.target.parentElement    
-
-   // console.log()
-    
+    let columnTarget = evt.target.parentElement        
 
     for (let i = 5 ; i>=0 ; i--){
-        if (teste.children[i].childElementCount !== 1){
+        if (columnTarget.children[i].childElementCount !== 1){
             if (verification){
-                teste.children[i].setAttribute( 'data-player', 'X')
-                let output = teste.children[i].append(creatRocks('PlayerX'))
+                columnTarget.children[i].setAttribute( 'data-player', 'X')
+                let output = columnTarget.children[i].append(creatRocks('PlayerX'))
                 verification = false
-                checkWinner()
+                checkWinner()              
                 return output
             }
             else {
-                teste.children[i].setAttribute( 'data-player', 'Y')
-                let output = teste.children[i].append(creatRocks('PlayerY'))
+                columnTarget.children[i].setAttribute( 'data-player', 'Y')
+                let output = columnTarget.children[i].append(creatRocks('PlayerY'))
                 verification = true
                 checkWinner()
                 return output
@@ -209,17 +211,18 @@ container.addEventListener("click", (evt) =>{
     }    
     
 });
+
 // condição parada quando vence
 const stopCondition = () => {
     if (stop){
-        if(champion == "playerX"){
+        if(champion == "PlayerX"){
             champion = "Capitão America"
             victory.textContent = `Parabéns o ${champion} venceu!`
             victory.id = "victoryX"
             victory.style.display = "flex"
             container.style.display = "none"
         }
-        if(champion == "playerY"){
+        if(champion == "PlayerY"){
             champion = "Homen de Ferro"
             victory.textContent = `Parabéns o ${champion} venceu!`
             victory.id = "victoryY"
