@@ -8,6 +8,7 @@ let champion = ""
 let blockTarget
 
 
+
 let champs;
 const confirmation = (arr) => {
     let count = 0;
@@ -145,6 +146,27 @@ const diagonalVerification = () => {
     
 }
 
+const drawValidation = () => {
+    let allblocks = document.querySelectorAll('[data-cl]');
+    let items;
+    let total;
+    const childVerify = (el) => {
+        return el.childElementCount;
+    }
+
+    const sum = (acc, item) => {
+        return acc+item;
+    } 
+
+    items = [].map.call(allblocks, childVerify)
+
+    total = items.reduce(sum);
+
+    if (total === 42) {
+        return console.log('Drawn')
+    } 
+}
+drawValidation()
 // criar handle de click
 container.addEventListener("click", (evt) =>{
     columnValidation = evt.target.parentElement.childNodes
@@ -166,6 +188,7 @@ container.addEventListener("click", (evt) =>{
                 horizontalValidation()
                 stopCondition()
                 diagonalVerification()
+                drawValidation()
                 return output
             }
             else {
@@ -176,6 +199,7 @@ container.addEventListener("click", (evt) =>{
                 horizontalValidation()
                 stopCondition()
                 diagonalVerification()
+                drawValidation()
                 return output
             }
         }
@@ -191,6 +215,3 @@ const stopCondition = () => {
         container.style.display = "none"
     }
 }
-
-
-
