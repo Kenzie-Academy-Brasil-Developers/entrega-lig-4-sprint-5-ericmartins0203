@@ -93,8 +93,8 @@ div{
 #pĺayerSelect{
     width: 400px;
     height: 50px;
-    border: 1px solid black;
-    margin-bottom: 130px;
+    border: 5px solid white;
+    margin-bottom: 100px;
     justify-content: space-between;
 }
 #startContent{
@@ -105,4 +105,8 @@ div{
     justify-content:flex-end ;
     align-items: center;
 
+}
+#heroes {
+    width: 420px;
+    height: 360px;
 }

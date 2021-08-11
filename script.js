@@ -259,18 +259,19 @@ const stopCondition = () => {
 }
 
 const initialScream = () => {
+        const heroes = document.getElementById("heroes")
         const pĺayerSelect = document.createElement("div")
         pĺayerSelect.id = "pĺayerSelect"
         const startContent = document.createElement("div")
         startContent.id = "startContent"
-        container.appendChild(startContent)
+        heroes.appendChild(startContent)
         const btnStart = document.createElement("button")
         btnStart.id = "btn-start"
         btnStart.textContent = "Iniciar"
         startContent.appendChild(pĺayerSelect)
         startContent.appendChild(btnStart)
         btnStart.addEventListener("click", teste = () =>{
-            startContent.style.display = "none"
+            heroes.style.display = "none"
             matrix()
         })
 }
