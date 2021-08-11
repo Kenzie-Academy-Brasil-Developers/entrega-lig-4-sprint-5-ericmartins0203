@@ -126,6 +126,7 @@ const diagonalVerification = () => {
                 block.dataset.player ===  container.children[i+3].children[j-3].dataset.player &&
                 block.dataset.player!== 'vazio'){
                 stop = true
+                champion = ('Player'+block.dataset.player)
                 return ('Player'+block.dataset.player)
             }
         }
@@ -141,6 +142,7 @@ const diagonalVerification = () => {
                 block.dataset.player ===  container.children[i-3].children[j-3].dataset.player &&
                 block.dataset.player!== 'vazio'){
                 stop = true
+                champion = ('Player'+block.dataset.player)
                 return ('Player'+block.dataset.player)
             }
         }
