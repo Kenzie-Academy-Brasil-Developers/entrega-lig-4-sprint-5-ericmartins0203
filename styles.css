@@ -62,4 +62,20 @@ body {
     width: 420px;
     height: 360px;
     background-color: white;
+    color: white;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+#victoryX {
+    background-image: url("https://mcdn.wallpapersafari.com/medium/66/44/siDQhm.jpg");
+    background-size: 120%; 
+    background-position: inherit; 
+    background-repeat: no-repeat;
+}
+#victoryY {
+    background-image: url("https://mcdn.wallpapersafari.com/medium/62/1/u4eLBz.jpg");
+    background-size: 155%; 
+    background-position: center; 
+    background-repeat: no-repeat;
 }

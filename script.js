@@ -1,5 +1,5 @@
 const container = document.getElementById('container');
-const victory =  document.getElementById("victory")
+const victory =  document.getElementsByClassName("victory")[0]
 let verification =  true
 let columnValidation 
 let blockId
@@ -140,10 +140,20 @@ container.addEventListener("click", (evt) =>{
 // condição parada quando vence
 const stopCondition = () => {
     if (stop){
-       console.log(`Parabéns o ${champion} venceu!`)
-       
-        victory.style.display = "block"
-        container.style.display = "none"
+        if(champion == "playerX"){
+            champion = "Capitão America"
+            victory.textContent = `Parabéns o ${champion} venceu!`
+            victory.id = "victoryX"
+            victory.style.display = "flex"
+            container.style.display = "none"
+        }
+        if(champion == "playerY"){
+            champion = "Homen de Ferro"
+            victory.textContent = `Parabéns o ${champion} venceu!`
+            victory.id = "victoryY"
+            victory.style.display = "flex"
+            container.style.display = "none"
+        }
     }
 }
 // validação
