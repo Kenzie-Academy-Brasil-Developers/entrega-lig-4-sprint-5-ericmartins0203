@@ -1,5 +1,7 @@
 const container = document.getElementById('container');
 const victory =  document.getElementsByClassName("victory")[0]
+const btn = document.createElement("button")
+const buttonReset = getElementById("buttonReset")
 let verification =  true
 let columnValidation 
 let blockId
@@ -53,7 +55,7 @@ const verticalValidation = () => {
         if (count === 3) {
             champion = campeao
             stop = true
-            return console.log(campeao)                  
+            return campeao                 
         }
 
     }
@@ -207,11 +209,14 @@ container.addEventListener("click", (evt) =>{
 });
 // condição parada quando vence
 const stopCondition = () => {
+    btn.id = "buttonReset"
+    btn.textContent = "Jogar Novamente"
     if (stop){
         if(champion == "playerX"){
             champion = "Capitão America"
             victory.textContent = `Parabéns o ${champion} venceu!`
             victory.id = "victoryX"
+            victory.appendChild(btn)
             victory.style.display = "flex"
             container.style.display = "none"
         }

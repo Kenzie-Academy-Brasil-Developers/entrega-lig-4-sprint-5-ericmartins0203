@@ -59,6 +59,7 @@ div{
     justify-content: center;
     text-align: center;
     align-items: center;
+    flex-direction: column;
 }
 #victoryX {
     background-image: url("https://mcdn.wallpapersafari.com/medium/66/44/siDQhm.jpg");
@@ -77,4 +78,10 @@ div{
     background-size: 125%; 
     background-position: center; 
     background-repeat: no-repeat;
+}
+.victory button {
+    width: 150px;
+    height: 50px;
+
+
 }
