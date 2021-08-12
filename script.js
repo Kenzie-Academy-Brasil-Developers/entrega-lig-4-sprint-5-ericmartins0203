@@ -263,7 +263,7 @@ const stopCondition = () => {
 const initialScream = () => {
         const heroes = document.getElementById("heroes")
         const pĺayerSelect = document.createElement("div")
-        pĺayerSelect.id = "pĺayerSelect"
+        //pĺayerSelect.id = "pĺayerSelect"
         const startContent = document.createElement("div")
         startContent.id = "startContent"
         heroes.appendChild(startContent)
