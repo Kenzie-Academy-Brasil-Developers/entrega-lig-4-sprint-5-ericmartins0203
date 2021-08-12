@@ -18,7 +18,6 @@ const verticalValidation = () => {
           if (column.childElementCount === 1){             
              player.push(column.children[0].classList.value)
             }
-            
     } 
     for (let i=1; i<player.length; i++){
         if (player[i-1] === player[i]){
@@ -28,15 +27,12 @@ const verticalValidation = () => {
         else {
             count = 0;
         }
-
         if (count === 3) {
             champion = campeao
             stop = true
             return champion                
         }
-
     }
-
 }
 
 const horizontalValidation = () => {       
@@ -71,7 +67,6 @@ const horizontalValidation = () => {
     }      
 }
 
-//cria Pedras
 const creatRocks = (player) => {
     const rocks = document.createElement("div")
     rocks.classList.add(player)
@@ -81,7 +76,6 @@ const creatRocks = (player) => {
     if (player == "PlayerY"){
         rocks.id = heroSelect2
     }
-
     return rocks
 }
 const matrix = () => {
@@ -137,7 +131,6 @@ const diagonalVerification = () => {
             }
         }
     }
-    
 }
 
 const drawValidation = () => {
@@ -174,7 +167,6 @@ const checkWinner = () => {
     }     
 }
 
-// criar handle de click
 container.addEventListener("click", (evt) =>{
 
     let columnTarget = evt.target.parentElement 
@@ -205,12 +197,7 @@ container.addEventListener("click", (evt) =>{
             }
         }    
     }
-
-    
-    
 });
-
-// condição parada quando vence
 
 const stopCondition = () => {
     const btn = document.createElement("button")
@@ -277,7 +264,7 @@ const stopCondition = () => {
         matrix()
         container.style.display = "flex"
         victory.style.display = "none"
-        
+        verification =  true
     }
     btn.addEventListener("click", resetGame)
 }
@@ -349,9 +336,6 @@ const initialScream = () => {
                 btnStart.disabled = false
             }
         }
-        })
-        
-
-
+    })
 }
 initialScream()
