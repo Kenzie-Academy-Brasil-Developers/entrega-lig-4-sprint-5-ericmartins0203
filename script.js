@@ -4,27 +4,8 @@ let verification =  true
 let columnValidation
 let stop = false
 let champion = ""
-
-
-
-let champs;
-const confirmation = (arr) => {
-    let count = 0;
-    for (let i=1; i<arr.length; i++){
-        if (arr[i-1] === arr[i]){
-            count++;
-            champs = arr[i]
-        }
-        else {
-            count = 0;
-        }
-
-        if (count === 3) {
-        
-            return champs                 
-        }
-    }
-}
+heroSelect1 = ""
+heroSelect2 = ""
 
 
 const verticalValidation = () => {
@@ -94,6 +75,13 @@ const horizontalValidation = () => {
 const creatRocks = (player) => {
     const rocks = document.createElement("div")
     rocks.classList.add(player)
+    if (player == "PlayerX"){
+        rocks.id = heroSelect1
+    }
+    if (player == "PlayerY"){
+        rocks.id = heroSelect2
+    }
+
     return rocks
 }
 const matrix = () => {
@@ -263,18 +251,52 @@ const stopCondition = () => {
 const initialScream = () => {
         const heroes = document.getElementById("heroes")
         const pĺayerSelect = document.createElement("div")
-        //pĺayerSelect.id = "pĺayerSelect"
+        pĺayerSelect.id = "pĺayerSelect"
         const startContent = document.createElement("div")
         startContent.id = "startContent"
         heroes.appendChild(startContent)
+        const hero1 = document.createElement("div")
+        const hero2 = document.createElement("div")
+        const hero3 = document.createElement("div")
+        const hero4 = document.createElement("div")
+        pĺayerSelect.appendChild(hero1)
+        pĺayerSelect.appendChild(hero2)
+        pĺayerSelect.appendChild(hero3)
+        pĺayerSelect.appendChild(hero4)
+        hero1.id = "hero1"
+        hero2.id = "hero2"
+        hero3.id = "hero3"
+        hero4.id = "hero4"
+        hero1.classList = "hero"
+        hero2.classList = "hero"
+        hero3.classList = "hero"
+        hero4.classList = "hero"
+        let valP = true
         const btnStart = document.createElement("button")
         btnStart.id = "btn-start"
         btnStart.textContent = "Iniciar"
         startContent.appendChild(pĺayerSelect)
         startContent.appendChild(btnStart)
-        btnStart.addEventListener("click", teste = () =>{
+        btnStart.disabled = true
+        btnStart.addEventListener("click", () =>{
             heroes.style.display = "none"
+            startContent.innerHTML = ""
             matrix()
+
         })
+        pĺayerSelect.addEventListener("click", (evt)=> {
+            if (valP) {
+                heroSelect1 = evt.target.id
+                valP = false 
+                console.log(heroSelect1)
+            }
+            else {
+                heroSelect2 = evt.target.id
+                btnStart.disabled = false
+            }
+        })
+        
+
+
 }
 initialScream()
