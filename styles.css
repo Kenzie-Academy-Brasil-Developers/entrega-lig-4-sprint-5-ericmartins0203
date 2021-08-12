@@ -14,6 +14,7 @@ body {
     background-image: url("https://wallpaperaccess.com/full/2076477.jpg");
     background-size: cover;
     overflow-y: hidden;
+    background-position: center;
 }
 
 header {
@@ -225,4 +226,30 @@ header img {
     background-size: cover;
     background-position: center; 
     background-repeat: no-repeat;
+}
+
+#instructions {
+        width: 520px;
+        height: 100px;
+        color: white;
+        border: 1px solid white;
+        margin-bottom: 10px;
+        background: rgba( 255, 255, 255, 0.10 );
+        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+        backdrop-filter: blur( 2.0px );
+        -webkit-backdrop-filter: blur( 2.0px );
+        border-radius: 10px;
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
+        font-size: 15px;
+        padding-left: 22px;
+}
+.virado {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+li {
+    list-style-type: square;
 }

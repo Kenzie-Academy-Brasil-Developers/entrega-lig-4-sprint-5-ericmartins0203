@@ -305,11 +305,31 @@ const initialScream = () => {
         hero2.classList = "hero"
         hero3.classList = "hero"
         hero4.classList = "hero"
+        const boxInstructions = document.createElement("div")
+        const ulIns = document.createElement("ul")
+        boxInstructions.appendChild(ulIns)
+        
+        let li1 = document.createElement("li")
+        let li2 = document.createElement("li")
+        let li3 = document.createElement("li")
+        let li4 = document.createElement("li")
+        ulIns.appendChild(li1)
+        ulIns.appendChild(li2)
+        ulIns.appendChild(li3)
+        ulIns.appendChild(li4)
+        li1.textContent = "Cada player deve escolher selecionar o disco do seu personagem e iniciar o jogo;"
+        li2.textContent = "O objetivo do jogo é ir colocando as fichas, até que o jogador consiga colocar 4 fichas em linha;"
+        li3.textContent = "Podendo ser na horizontal ou na vertical ou na diagonal;"
+        li4.textContent = "Você deve impedir que o adversário consiga o mesmo;"
+        
+        boxInstructions.id = "instructions"
+        
         let valP = true
         const btnStart = document.createElement("button")
         btnStart.id = "btn-start"
         btnStart.textContent = "Iniciar"
         startContent.appendChild(pĺayerSelect)
+        startContent.appendChild(boxInstructions)
         startContent.appendChild(btnStart)
         btnStart.disabled = true
         btnStart.addEventListener("click", () =>{
