@@ -178,9 +178,13 @@ const checkWinner = () => {
 container.addEventListener("click", (evt) =>{
 
     let columnTarget = evt.target.parentElement 
-
+    
+    if (columnTarget.id.slice(0, 5) === 'block'){
+        columnTarget = columnTarget.parentElement
+    }
+    
     if (columnTarget.id.slice(0, 3) === 'col'){
-        columnValidation = evt.target.parentElement.childNodes           
+        columnValidation = columnTarget.childNodes           
 
         for (let i = 5 ; i>=0 ; i--){
             if (columnTarget.children[i].childElementCount !== 1){
