@@ -242,18 +242,18 @@ header img {
         font-size: 15px;
         padding-left: 22px;
 }
-.virado {
+/* .virado {
     -webkit-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
     -o-transform: rotate(90deg);
     transform: rotate(90deg);
-}
+} */
 
 li {
     list-style-type: square;
 }
 
-@media screen and (max-width: 800px){
+@media screen and (max-width: 800px) and (orientation: landscape){
     html {
       transform: rotate(-90deg);
       transform-origin: left top;
