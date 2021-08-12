@@ -104,8 +104,7 @@ header img {
 
 #victoryX {
     background-image: url("https://mcdn.wallpapersafari.com/medium/66/44/siDQhm.jpg");
-    background-size: 140%; 
-    background-position: inherit; 
+    background-size: 140%;  
     background-repeat: no-repeat;
     position: relative;
     animation: winnerX 2s;    
@@ -124,6 +123,7 @@ header img {
     background-size: 160%; 
     background-position: center; 
     background-repeat: no-repeat;
+    position: relative;
     animation: winnerY 2s;
     color: black;
 }
