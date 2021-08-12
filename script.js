@@ -200,8 +200,7 @@ container.addEventListener("click", (evt) =>{
                     columnTarget.children[i].setAttribute( 'data-player', 'X')
                     let output = columnTarget.children[i].append(creatRocks('PlayerX'))
                     verification = false
-                    checkWinner()  
-                    console.log(columnTarget.id)      
+                    checkWinner()      
                     return output
                 }
                 else {
@@ -209,7 +208,6 @@ container.addEventListener("click", (evt) =>{
                     let output = columnTarget.children[i].append(creatRocks('PlayerY'))
                     verification = true
                     checkWinner()
-                    console.log(columnTarget.id)
                     return output
                 }
             }
