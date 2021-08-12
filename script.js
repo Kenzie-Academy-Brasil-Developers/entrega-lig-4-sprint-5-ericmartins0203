@@ -319,15 +319,16 @@ const initialScream = () => {
 
         })
         pĺayerSelect.addEventListener("click", (evt)=> {
+            if (evt.target.id !== "pĺayerSelect") {
             if (valP) {
                 heroSelect1 = evt.target.id
                 valP = false 
-                console.log(heroSelect1)
             }
             else {
                 heroSelect2 = evt.target.id
                 btnStart.disabled = false
             }
+        }
         })
         
 
