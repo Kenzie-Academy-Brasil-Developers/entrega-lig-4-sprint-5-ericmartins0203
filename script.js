@@ -6,7 +6,7 @@ let stop = false
 let champion = ""
 heroSelect1 = ""
 heroSelect2 = ""
-
+let heros =["capitao", "iron", "hulk", "thor"]
 
 const verticalValidation = () => {
     let player = [] 
@@ -214,17 +214,47 @@ const stopCondition = () => {
     btn.textContent = "Jogar Novamente"
     if (stop){
         if(champion == "PlayerX"){
-            champion = "Capitão America"
-            victory.textContent = `Parabéns o ${champion} venceu!`
-            victory.id = "victoryX"
+            if(heroSelect1 == "hero1"){
+                victory.id = heros[0]
+                champion = "Capitão America"
+                victory.textContent = `Parabéns o ${champion} venceu!`
+            }if(heroSelect1 == "hero2"){
+                victory.id = heros[1]
+                champion = "Homen de Ferro"
+                victory.textContent = `Gênio, bilionário, playboy, filantropo venceu!`
+            }if(heroSelect1 == "hero3"){
+                victory.id = heros[2]
+                champion = "Hulk"
+                victory.textContent = `${champion} Esmaga!`
+            }if(heroSelect1 == "hero4"){
+                victory.id = heros[3]
+                champion = "Thor"
+                victory.textContent = `${champion} venceu, Bora tomar uma ?`
+            }
+           
             victory.appendChild(btn)
             victory.style.display = "flex"
             container.style.display = "none"
         }
         if(champion == "PlayerY"){
-            champion = "Homen de Ferro"
-            victory.textContent = `Parabéns o ${champion} venceu!`
-            victory.id = "victoryY"
+            if(heroSelect1 == "hero1"){
+                victory.id = heros[0]
+                champion = "Capitão America"
+                victory.textContent = `Parabéns o ${champion} venceu!`
+            }if(heroSelect1 == "hero2"){
+                victory.id = heros[1]
+                champion = "Homen de Ferro"
+                victory.textContent = `Gênio, bilionário, playboy, filantropo venceu!`
+            }if(heroSelect1 == "hero3"){
+                victory.id = heros[2]
+                champion = "Hulk"
+                victory.textContent = `${champion} Esmaga!`
+            }if(heroSelect1 == "hero4"){
+                victory.id = heros[3]
+                champion = "Thor"
+                victory.textContent = `${champion} venceu, Bora tomar uma ?`
+            }
+           
             victory.appendChild(btn)
             victory.style.display = "flex"
             container.style.display = "none"

@@ -102,43 +102,21 @@ header img {
     box-shadow: 0px 10px 11px 6px rgba(0,0,0,0.72);
 }
 
-#victoryX {
-    background-image: url("https://mcdn.wallpapersafari.com/medium/66/44/siDQhm.jpg");
-    background-size: 140%;  
-    background-repeat: no-repeat;
-    position: relative;
-    animation: winnerX 2s;    
-    background-position: top;
-    color: darkred;
-    
-}
+
 
 @keyframes winnerX {
     0% {bottom: -560px; }
     100% {bottom: 0px;}
 }
 
-#victoryY {
-    background-image: url("https://mcdn.wallpapersafari.com/medium/62/1/u4eLBz.jpg");
-    background-size: 160%; 
-    background-position: center; 
-    background-repeat: no-repeat;
-    position: relative;
-    animation: winnerY 2s;
-    color: black;
-}
+
 
 @keyframes winnerY {
     0% {bottom: -560px;}
     100% {bottom: 0px;}
 }
 
-#Draw {
-    background-image: url("https://festivalteen.com.br/wp-content/uploads/2020/05/homem-aranha-apontando-og-1.jpg");
-    background-size: 125%; 
-    background-position: center; 
-    background-repeat: no-repeat;
-}
+
 
 .victory button {
     width: 150px;
@@ -209,4 +187,47 @@ header img {
     background-size: cover;
     border-radius: 50%;
     cursor: pointer;
+}
+
+#capitao {
+    background-image: url("./img/capBackgound.jpg");
+    background-size: 140%;
+    background-position: inherit;
+    background-repeat: no-repeat;
+    position: relative;
+    animation: winnerX 2s;
+    background-position: top;
+    color: darkred;
+}
+#iron {
+    background-image: url("./img/ironBackgound.jpg");
+    background-size: 160%;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: winnerY 2s;
+    color: black;
+}
+#hulk{
+    background-image: url("./img/hulkBackground.jpg");
+    background-size: 160%;
+    background-position: inherit;
+    background-repeat: no-repeat;
+    position: relative;
+    animation: winnerX 2s;
+    background-position: top;
+    color: darkred;
+}
+#thor{
+    background-image: url("./img/thorBackgound.jpg");
+    background-size: 175%;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: winnerY 2s;
+    color: black;
+}
+#Draw {
+    background-image: url("./img/draw.png");
+    background-size: 125%; 
+    background-position: center; 
+    background-repeat: no-repeat;
 }
