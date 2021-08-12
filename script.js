@@ -262,6 +262,7 @@ const stopCondition = () => {
     const resetGame = () => {
         container.innerHTML = ""
         matrix()
+        verification = true
         container.style.display = "flex"
         victory.style.display = "none"
         verification =  true
@@ -328,10 +329,15 @@ const initialScream = () => {
         pĺayerSelect.addEventListener("click", (evt)=> {
             if (evt.target.id !== "pĺayerSelect") {
             if (valP) {
+                let dis = evt.target
+                console.log(dis);
                 heroSelect1 = evt.target.id
+                dis.style.display = "none"
                 valP = false 
             }
             else {
+                let dis = evt.target
+                dis.style.display = "none"
                 heroSelect2 = evt.target.id
                 btnStart.disabled = false
             }
@@ -339,3 +345,4 @@ const initialScream = () => {
     })
 }
 initialScream()
+
