@@ -55,8 +55,9 @@ header img {
 
 
 .PlayerX {
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
-    background-image: url('https://i.pinimg.com/originals/b7/9a/76/b79a76e0ca4d5c981ae54f08b162f724.png');
     background-size: cover;
     position: relative;
     animation: playX 800ms;
@@ -70,6 +71,8 @@ header img {
 }
 
 .PlayerY {
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     background-size: cover;
     background-image: url( 'https://pbs.twimg.com/profile_images/1222654825403424768/-ySQePLc_400x400.jpg' );
@@ -140,22 +143,29 @@ header img {
 .victory button {
     width: 150px;
     height: 50px;
-
-
+    cursor: pointer;
 }
 
 #btn-start {
     width: 150px;
     height: 50px;
-    
+    cursor: pointer;    
 }
 
 #pĺayerSelect{
     width: 400px;
-    height: 50px;
-    border: 5px solid white;
+    height: 70px;
     margin-bottom: 100px;
-    justify-content: space-between;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center;
+    background: rgba( 255, 255, 255, 0.15 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 3.5px );
+    -webkit-backdrop-filter: blur( 3.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 #startContent{
@@ -165,16 +175,38 @@ header img {
     flex-direction: column;
     justify-content:flex-end ;
     align-items: center;
-
+}
+.hero {
+    width: 60px;
+    height: 60px;
 }
 
 #heroes {
     width: 420px;
     height: 360px;
-    /* background: rgba( 255, 255, 255, 0.15 );
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 3.5px );
-    -webkit-backdrop-filter: blur( 3.5px );
-    border-radius: 10px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 ); */
+    
+}
+#hero1 {
+    background-image: url("./img/america.png");
+    background-size: cover;
+    border-radius: 50%;
+    cursor: pointer;
+}
+#hero2 {
+    background-image: url("./img/iron.jpg");
+    background-size: cover;
+    border-radius: 50%;
+    cursor: pointer;
+}
+#hero3 {
+    background-image: url("./img/hulk.jpg");
+    background-size: cover;
+    border-radius: 50%;
+    cursor: pointer;
+}
+#hero4 {
+    background-image: url("./img/thor.jpg");
+    background-size: cover;
+    border-radius: 50%;
+    cursor: pointer;
 }
