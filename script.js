@@ -1,11 +1,9 @@
 const container = document.getElementById('container');
 const victory =  document.getElementsByClassName("victory")[0]
 let verification =  true
-let columnValidation 
-let blockId
+let columnValidation
 let stop = false
 let champion = ""
-let blockTarget
 
 
 
@@ -69,11 +67,13 @@ const horizontalValidation = () => {
         for (let i=0; i < container.children.length; i++){
             if (container.children[i].children[k].childElementCount === 1){
                 playersH.push(container.children[i].children[k].children[0].className);       
+            }else {
+                playersH.push(1)
             }
         }
 
         for (let i=1; i<playersH.length; i++){
-            if (playersH[i-1] === playersH[i]){
+            if ((playersH[i-1] === playersH[i]) & (playersH[i] !== 1)){
                 count++;
                 camp = playersH[i]
             }
@@ -171,9 +171,7 @@ const drawValidation = () => {
     }
 }
 
-const checkWinner = () => {
-   
-
+const checkWinner = () => {   
     if ((verticalValidation() === 'PlayerX') || (horizontalValidation() === 'PlayerX') || (diagonalVerification() === 'PlayerX')) {
         stopCondition()
         return 'PlayerX'
@@ -185,34 +183,38 @@ const checkWinner = () => {
     else if (drawValidation() === 'Draw') {
         stopCondition()
         return 'Draw'
-    } 
-    
+    }     
 }
+
 // criar handle de click
 container.addEventListener("click", (evt) =>{
-    columnValidation = evt.target.parentElement.childNodes
-    blockId = evt.target.id;
-    blockTarget = evt.target;
-    let columnTarget = evt.target.parentElement        
 
-    for (let i = 5 ; i>=0 ; i--){
-        if (columnTarget.children[i].childElementCount !== 1){
-            if (verification){
-                columnTarget.children[i].setAttribute( 'data-player', 'X')
-                let output = columnTarget.children[i].append(creatRocks('PlayerX'))
-                verification = false
-                checkWinner()            
-                return output
+    let columnTarget = evt.target.parentElement 
+
+    if (columnTarget.id.slice(0, 3) === 'col'){
+        columnValidation = evt.target.parentElement.childNodes           
+
+        for (let i = 5 ; i>=0 ; i--){
+            if (columnTarget.children[i].childElementCount !== 1){
+                if (verification){
+                    columnTarget.children[i].setAttribute( 'data-player', 'X')
+                    let output = columnTarget.children[i].append(creatRocks('PlayerX'))
+                    verification = false
+                    checkWinner()      
+                    return output
+                }
+                else {
+                    columnTarget.children[i].setAttribute( 'data-player', 'Y')
+                    let output = columnTarget.children[i].append(creatRocks('PlayerY'))
+                    verification = true
+                    checkWinner()
+                    return output
+                }
             }
-            else {
-                columnTarget.children[i].setAttribute( 'data-player', 'Y')
-                let output = columnTarget.children[i].append(creatRocks('PlayerY'))
-                verification = true
-                checkWinner()
-                return output
-            }
-        }
-    }    
+        }    
+    }
+
+    
     
 });
 
