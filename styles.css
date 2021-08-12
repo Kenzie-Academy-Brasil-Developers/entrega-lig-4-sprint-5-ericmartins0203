@@ -242,18 +242,12 @@ header img {
         font-size: 15px;
         padding-left: 22px;
 }
-/* .virado {
-    -webkit-transform: rotate(90deg);
-    -moz-transform: rotate(90deg);
-    -o-transform: rotate(90deg);
-    transform: rotate(90deg);
-} */
 
 li {
     list-style-type: square;
 }
 
-@media screen and (max-width: 800px) and (orientation: landscape){
+@media screen and (max-width: 800px) and (orientation: portrait){
     html {
       transform: rotate(-90deg);
       transform-origin: left top;
@@ -297,3 +291,33 @@ li {
     }
 }
 
+@media screen and (max-width: 800px) and (orientation:landscape){
+    body {
+        overflow-y: scroll;
+        background-repeat: no-repeat;
+        background-size: 110%;
+    }
+
+    #startContent {
+        height: auto;
+    }
+
+    #pĺayerSelect {
+        margin-bottom: 10px;
+    }
+
+    .blocks {
+        width: 50px;
+        height: 50px;
+    }
+
+    header {
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+
+    .PlayerX, .PlayerY {
+        width: 50px;
+        height: 50px;
+    }
+}
