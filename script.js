@@ -4,9 +4,11 @@ let verification =  true
 let columnValidation
 let stop = false
 let champion = ""
-heroSelect1 = ""
-heroSelect2 = ""
+let heroSelect1 = ""
+let heroSelect2 = ""
 let heros =["capitao", "iron", "hulk", "thor"]
+let arrP =[]
+let valP = true
 
 const verticalValidation = () => {
     let player = [] 
@@ -211,7 +213,7 @@ const stopCondition = () => {
                 victory.textContent = `Parabéns o ${champion} venceu!`
             }if(heroSelect1 == "hero2"){
                 victory.id = heros[1]
-                champion = "Homen de Ferro"
+                champion = "Homem de Ferro"
                 victory.textContent = `Gênio, bilionário, playboy, filantropo venceu!`
             }if(heroSelect1 == "hero3"){
                 victory.id = heros[2]
@@ -228,19 +230,20 @@ const stopCondition = () => {
             container.style.display = "none"
         }
         if(champion == "PlayerY"){
-            if(heroSelect1 == "hero1"){
+            if(heroSelect2 == "hero1"){
                 victory.id = heros[0]
                 champion = "Capitão America"
                 victory.textContent = `Parabéns o ${champion} venceu!`
-            }if(heroSelect1 == "hero2"){
+            }if(heroSelect2 == "hero2"){
+                console.log({champion, heroSelect1})
                 victory.id = heros[1]
-                champion = "Homen de Ferro"
+                champion = "Homem de Ferro"
                 victory.textContent = `Gênio, bilionário, playboy, filantropo venceu!`
-            }if(heroSelect1 == "hero3"){
+            }if(heroSelect2 == "hero3"){
                 victory.id = heros[2]
                 champion = "Hulk"
                 victory.textContent = `${champion} Esmaga!`
-            }if(heroSelect1 == "hero4"){
+            }if(heroSelect2 == "hero4"){
                 victory.id = heros[3]
                 champion = "Thor"
                 victory.textContent = `${champion} venceu, Bora tomar uma ?`
@@ -312,7 +315,7 @@ const initialScream = () => {
         
         boxInstructions.id = "instructions"
         
-        let valP = true
+        
         const btnStart = document.createElement("button")
         btnStart.id = "btn-start"
         btnStart.textContent = "Iniciar"
@@ -330,16 +333,17 @@ const initialScream = () => {
             if (evt.target.id !== "pĺayerSelect") {
             if (valP) {
                 let dis = evt.target
-                console.log(dis);
                 heroSelect1 = evt.target.id
                 dis.style.display = "none"
-                valP = false 
+                valP = false
             }
             else {
                 let dis = evt.target
                 dis.style.display = "none"
                 heroSelect2 = evt.target.id
                 btnStart.disabled = false
+                
+
             }
         }
     })
