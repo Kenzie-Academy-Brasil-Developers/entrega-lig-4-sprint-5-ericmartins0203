@@ -8,10 +8,19 @@ html, body, figure, div, input, textarea, p, h1, h2, h3, h4, h5, h6, ul, summary
 body {
     display: flex;
     height: 100vh;
-    justify-content: center;
     align-items: center;
+    flex-direction: column;
     background-image: url("https://wallpaperaccess.com/full/2076477.jpg");
     background-size: cover;
+}
+header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header img {
+    width:300px
 }
 #container {
     display: flex;
