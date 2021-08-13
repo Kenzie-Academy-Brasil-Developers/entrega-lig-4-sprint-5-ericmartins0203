@@ -341,12 +341,14 @@ const initialScream = () => {
             if (valP) {
                 let dis = evt.target
                 heroSelect1 = evt.target.id
-                dis.style.display = "none"
+                dis.classList.add('rotate-vert-center')
+                dis.classList.add('disabled')
                 valP = false
             }
             else {
                 let dis = evt.target
-                dis.style.display = "none"
+                dis.classList.add('rotate-vert-center')
+                dis.classList.add('disabled')
                 heroSelect2 = evt.target.id
                 btnStart.disabled = false
                 
