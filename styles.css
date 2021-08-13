@@ -107,6 +107,25 @@ header img {
     0% {bottom: -560px;}
     100% {bottom: 0px;}
 }
+footer{
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    height: 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 2.0px );
+    -webkit-backdrop-filter: blur( 2.0px );
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+a{
+    color:whitesmoke;
+    text-decoration: none;
+}
 
 .victory button {
     width: 150px;
@@ -352,6 +371,9 @@ li {
         width: 50px;
         height: 50px;
     }
+    footer{
+        display: none;
+    }
 }
 
 @media screen and (max-width: 800px) and (orientation:landscape){
@@ -385,5 +407,8 @@ li {
     .PlayerX, .PlayerY {
         width: 50px;
         height: 50px;
+    }
+    footer{
+        display: none;
     }
 }
