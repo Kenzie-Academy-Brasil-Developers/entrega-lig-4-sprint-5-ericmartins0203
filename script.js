@@ -1,5 +1,9 @@
 const container = document.getElementById('container');
 const victory =  document.getElementsByClassName("victory")[0]
+const contentVictory = document.createElement('p');
+victory.appendChild(contentVictory)
+const btn = document.createElement("button")
+victory.appendChild(btn)
 let verification =  true
 let columnValidation
 let stop = false
@@ -203,30 +207,32 @@ container.addEventListener("click", (evt) =>{
 });
 
 const stopCondition = () => {
-    const btn = document.createElement("button")
+    
     btn.id = "buttonReset"
     btn.textContent = "Jogar Novamente"
+    btn.style.display='none'
+    
     if (stop){
         if(champion == "PlayerX"){
             if(heroSelect1 == "hero1"){
                 victory.id = heros[0]
                 champion = "Capitão América"
-                victory.textContent = `Parabéns o ${champion} venceu!`
+                contentVictory.textContent = `Parabéns o ${champion} venceu!`
             }if(heroSelect1 == "hero2"){
                 victory.id = heros[1]
                 champion = "Homem de Ferro"
-                victory.textContent = `Gênio, bilionário, playboy, filantropo venceu!`
+                contentVictory.textContent = `Gênio, bilionário, playboy, filantropo venceu!`
             }if(heroSelect1 == "hero3"){
                 victory.id = heros[2]
                 champion = "Hulk"
-                victory.textContent = `${champion} Esmaga!`
+                contentVictory.textContent = `${champion} Esmaga!`
             }if(heroSelect1 == "hero4"){
                 victory.id = heros[3]
                 champion = "Thor"
-                victory.textContent = `${champion} venceu, Bora tomar uma ?`
+                contentVictory.textContent = `${champion} venceu, Bora tomar uma ?`
             }
            
-            victory.appendChild(btn)
+            btn.style.display='block';
             victory.style.display = "flex"
             container.style.display = "none"
         }
@@ -234,30 +240,30 @@ const stopCondition = () => {
             if(heroSelect2 == "hero1"){
                 victory.id = heros[0]
                 champion = "Capitão America"
-                victory.textContent = `Parabéns o ${champion} venceu!`
+                contentVictory.textContent = `Parabéns o ${champion} venceu!`
             }if(heroSelect2 == "hero2"){
                 console.log({champion, heroSelect1})
                 victory.id = heros[1]
                 champion = "Homem de Ferro"
-                victory.textContent = `Gênio, bilionário, playboy, filantropo venceu!`
+                contentVictory.textContent = `Gênio, bilionário, playboy, filantropo venceu!`
             }if(heroSelect2 == "hero3"){
                 victory.id = heros[2]
                 champion = "Hulk"
-                victory.textContent = `${champion} Esmaga!`
+                contentVictory.textContent = `${champion} Esmaga!`
             }if(heroSelect2 == "hero4"){
                 victory.id = heros[3]
                 champion = "Thor"
-                victory.textContent = `${champion} venceu, Bora tomar uma ?`
+                contentVictory.textContent = `${champion} venceu, Bora tomar uma ?`
             }
            
-            victory.appendChild(btn)
+            btn.style.display='block'
             victory.style.display = "flex"
             container.style.display = "none"
         }
         if(champion == "Draw"){
-            victory.textContent = "Ué? deu empate."
+            contentVictory.textContent = "Ué? deu empate."
             victory.id = "Draw"
-            victory.appendChild(btn)
+            btn.style.display='block'
             victory.style.display = "flex"
             container.style.display = "none"
         }
@@ -269,7 +275,7 @@ const stopCondition = () => {
         verification = true
         container.style.display = "flex"
         victory.style.display = "none"
-        verification =  true
+        verification =  true        
     }
     btn.addEventListener("click", resetGame)
 }

@@ -90,7 +90,7 @@ header img {
     font-weight: bolder;
     font-size: 24px;
     font-family: sans-serif;
-    justify-content: space-around;
+    justify-content: flex-end;
     text-align: center;
     align-items: center;
     flex-direction: column;
@@ -119,6 +119,18 @@ header img {
     font-weight: bolder;
     font-size: 16px;
     background-color: lightgrey;
+    margin-bottom: 50px;
+}
+
+.victory > p {
+    background: rgba( 255, 255, 255, 0.40 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 1.5px );
+    -webkit-backdrop-filter: blur( 1.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    padding: 0 5px;
+    margin-bottom: 30px;
 }
 
 #btn-start {
@@ -207,7 +219,7 @@ header img {
     position: relative;
     z-index: 1;
     animation: winnerY 2s;
-    color: #00ff15;
+    color: red;
 }
 #hulk{
     background-image: url("./img/hulkBackground.jpg");
@@ -218,7 +230,7 @@ header img {
     z-index: 1;
     animation: winnerX 2s;
     background-position: top;
-    color: darkred;
+    color: green;
 }
 
 #thor{
