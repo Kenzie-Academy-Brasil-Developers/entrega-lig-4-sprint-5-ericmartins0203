@@ -9,7 +9,7 @@ let heroSelect2 = ""
 let heros =["capitao", "iron", "hulk", "thor"]
 let arrP =[]
 let valP = true
-
+let mute= true
 
 const verticalValidation = () => {
     let player = [] 
@@ -352,16 +352,14 @@ const initialScream = () => {
 initialScream()
 
 const music = () => {
-    let musicTheme = document.createElement('audio');
-    musicTheme.src="sounds/avengersMusic.mp3";
-    musicTheme.autoplay='true';
-    musicTheme.loop = 'true';   
+    let musicTheme = document.getElementById('audio');
+    musicTheme.loop = true;   
 
     let btnMute = document.createElement('div');
     btnMute.id='mute';
 
     let icon = document.createElement('img');
-    icon.src="./img/mute.png";
+    icon.src="./img/sound.png";
 
     btnMute.appendChild(icon)
 
@@ -369,20 +367,28 @@ const music = () => {
     btnPlay.id='play';    
 
     let iconSound = document.createElement('img');
-    iconSound.src="./img/sound.png";
+    iconSound.src="./img/play.png";
 
     btnPlay.appendChild(iconSound)
 
-    document.body.appendChild(musicTheme);
     document.body.appendChild(btnMute);  
     document.body.appendChild(btnPlay);
     
-    btnMute.addEventListener('click', function(){
-        musicTheme.muted= true;
+    btnMute.addEventListener('click', () =>{
+        if (mute){
+          musicTheme.muted= mute; 
+          icon.src="./img/mute.png";
+          mute = false 
+        } else {
+            musicTheme.muted= mute; 
+            icon.src="./img/sound.png";
+            mute = true
+        }
+        
     })
 
-    btnPlay.addEventListener('click', function(){
-        musicTheme.muted = false; 
+    btnPlay.addEventListener('click', () =>{
+        musicTheme.play() 
     })
 }
 

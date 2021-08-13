@@ -1,3 +1,5 @@
+@import url('http://fonts.cdnfonts.com/css/the-mighty-avengers');
+
 html, body, figure, div, input, textarea, p, h1, h2, h3, h4, h5, h6, ul, summary, footer, main, aside, section{
     margin: 0;
     padding: 0;
@@ -11,7 +13,7 @@ body {
     height: 100vh;
     align-items: center;
     flex-direction: column;
-    background-image: url("https://wallpaperaccess.com/full/2076477.jpg");
+    background-image: url("./img/ironvsCap2.jpg");
     background-size: cover;
     background-position: center;
     overflow-y: hidden;
@@ -88,6 +90,7 @@ header img {
     background-color: white;    
     font-weight: bolder;
     font-size: 24px;
+    font-family: sans-serif;
     justify-content: space-around;
     text-align: center;
     align-items: center;
@@ -123,6 +126,15 @@ header img {
     width: 150px;
     height: 50px;
     cursor: pointer;    
+    font-family: 'The Mighty Avengers', sans-serif;
+    font-size: 35px;
+    border-radius: 10px;
+    border: none;
+    background-color: lightgrey;
+}
+
+#btn-start:hover {
+    color: red;
 }
 
 #pĺayerSelect{
@@ -189,6 +201,7 @@ header img {
     background-position: inherit;
     background-repeat: no-repeat;
     position: relative;
+    z-index: 1;
     animation: winnerX 2s;
     background-position: top;
     color: darkred;
@@ -198,6 +211,8 @@ header img {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    position: relative;
+    z-index: 1;
     animation: winnerY 2s;
     color: black;
 }
@@ -207,6 +222,7 @@ header img {
     background-position: inherit;
     background-repeat: no-repeat;
     position: relative;
+    z-index: 1;
     animation: winnerX 2s;
     background-position: top;
     color: darkred;
@@ -224,6 +240,9 @@ header img {
     background-size: cover;
     background-position: top; 
     background-repeat: no-repeat;
+    position: relative;
+    z-index: 1;
+    animation: winnerY 2s;
 }
 
 #instructions {
@@ -335,7 +354,7 @@ li {
     body {
         overflow-y: scroll;
         background-repeat: no-repeat;
-        background-size: 110%;
+        background-size: contain;
     }
 
     #startContent {
