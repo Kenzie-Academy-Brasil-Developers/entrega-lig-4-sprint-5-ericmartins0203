@@ -1,4 +1,3 @@
-@import url('http://fonts.cdnfonts.com/css/the-mighty-avengers');
 
 html, body, figure, div, input, textarea, p, h1, h2, h3, h4, h5, h6, ul, summary, footer, main, aside, section{
     margin: 0;
@@ -125,16 +124,10 @@ header img {
 #btn-start {
     width: 150px;
     height: 50px;
-    cursor: pointer;    
-    font-family: 'The Mighty Avengers', sans-serif;
-    font-size: 35px;
+    cursor: pointer;
+    font-size: 20px;
     border-radius: 10px;
     border: none;
-    background-color: lightgrey;
-}
-
-#btn-start:hover {
-    color: red;
 }
 
 #pĺayerSelect{
