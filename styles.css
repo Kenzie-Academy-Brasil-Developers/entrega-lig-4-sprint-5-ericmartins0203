@@ -207,7 +207,7 @@ header img {
     position: relative;
     z-index: 1;
     animation: winnerY 2s;
-    color: black;
+    color: #00ff15;
 }
 #hulk{
     background-image: url("./img/hulkBackground.jpg");
@@ -220,14 +220,16 @@ header img {
     background-position: top;
     color: darkred;
 }
+
 #thor{
     background-image: url("./img/thorBackgound.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     animation: winnerY 2s;
-    color: black;
+    color: yellow;
 }
+
 #Draw {
     background-image: url("./img/draw.png");
     background-size: cover;
