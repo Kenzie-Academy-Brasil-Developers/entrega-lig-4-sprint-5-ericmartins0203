@@ -10,6 +10,7 @@ let heros =["capitao", "iron", "hulk", "thor"]
 let arrP =[]
 let valP = true
 
+
 const verticalValidation = () => {
     let player = [] 
     let count = 0;
@@ -209,7 +210,7 @@ const stopCondition = () => {
         if(champion == "PlayerX"){
             if(heroSelect1 == "hero1"){
                 victory.id = heros[0]
-                champion = "Capitão America"
+                champion = "Capitão América"
                 victory.textContent = `Parabéns o ${champion} venceu!`
             }if(heroSelect1 == "hero2"){
                 victory.id = heros[1]
@@ -349,4 +350,42 @@ const initialScream = () => {
     })
 }
 initialScream()
+
+const music = () => {
+    let musicTheme = document.createElement('audio');
+    musicTheme.src="sounds/avengersMusic.mp3";
+    musicTheme.autoplay='true';
+    musicTheme.loop = 'true';   
+
+    let btnMute = document.createElement('div');
+    btnMute.id='mute';
+
+    let icon = document.createElement('img');
+    icon.src="./img/mute.png";
+
+    btnMute.appendChild(icon)
+
+    let btnPlay = document.createElement('div');
+    btnPlay.id='play';    
+
+    let iconSound = document.createElement('img');
+    iconSound.src="./img/sound.png";
+
+    btnPlay.appendChild(iconSound)
+
+    document.body.appendChild(musicTheme);
+    document.body.appendChild(btnMute);  
+    document.body.appendChild(btnPlay);
+    
+    btnMute.addEventListener('click', function(){
+        musicTheme.muted= true;
+    })
+
+    btnPlay.addEventListener('click', function(){
+        musicTheme.muted = false; 
+    })
+}
+
+music()
+
 
