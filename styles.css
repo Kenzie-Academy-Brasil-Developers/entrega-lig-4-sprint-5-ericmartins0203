@@ -14,9 +14,8 @@ body {
     flex-direction: column;
     background-image: url("./img/ironvsCap2.jpg");
     background-size: cover;
-    background-position: center;
+    background-position: top;
     overflow-y: hidden;
-    background-position: center;
 }
 
 header {
@@ -125,20 +124,33 @@ footer{
 a{
     color:whitesmoke;
     text-decoration: none;
+    border-radius: 10px;
+    padding: 5px;
 }
-
+a:hover{
+    -webkit-box-shadow: 5px 5px 15px 5px #000000; 
+    box-shadow: 5px 5px 15px 5px #000000;
+}
+.colums:hover{
+    -webkit-box-shadow: 5px 5px 15px 5px #000000; 
+    box-shadow: 5px 5px 15px 5px #000000;
+}
 .victory button {
     width: 150px;
     height: 50px;
     cursor: pointer;
-    border-radius: 10px;
     border: none;
-    -webkit-box-shadow: 5px 5px 15px 5px #000000; 
-    box-shadow: 5px 5px 15px 5px #000000;
     font-weight: bolder;
     font-size: 16px;
-    background-color: lightgrey;
     margin-bottom: 50px;
+    background: rgba( 255, 255, 255, 0.40 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 1.5px );
+    -webkit-backdrop-filter: blur( 1.5px );
+    border-radius: 10px;
+    -webkit-box-shadow: 5px 5px 15px 5px #000000; 
+    box-shadow: 5px 5px 15px 5px #000000;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 .victory > p {
@@ -147,8 +159,10 @@ a{
     backdrop-filter: blur( 1.5px );
     -webkit-backdrop-filter: blur( 1.5px );
     border-radius: 10px;
+    -webkit-box-shadow: 5px 5px 15px 5px #000000; 
+    box-shadow: 5px 5px 15px 5px #000000;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
-    padding: 0 5px;
+    padding: 5px;
     margin-bottom: 30px;
 }
 
@@ -258,7 +272,7 @@ a{
     background-position: center;
     background-repeat: no-repeat;
     animation: winnerY 2s;
-    color: yellow;
+    color: black;
 }
 
 #Draw {
@@ -344,6 +358,7 @@ li {
     body {
         background-repeat: no-repeat;
         background-size: cover;
+        background-position: top;
         max-height: 100vmin;
         max-width: 100vmax;
         overflow-y: scroll;
@@ -382,6 +397,7 @@ li {
     }
     body {
         overflow-y: scroll;
+        background-position: top;
         background-repeat: no-repeat;
         background-size: contain;
     }
